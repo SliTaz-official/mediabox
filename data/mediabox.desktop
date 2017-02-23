@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Multimedia Box
+Exec=mediabox
+Icon=slitaz-icon
+Icon=multimedia-video-player
+Categories=AudioVideo;Video;Player;
