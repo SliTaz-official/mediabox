@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MediaBox\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-23 21:26+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: index.cgi:29
+msgid "Missing config file:"
+msgstr ""
+
+#: index.cgi:64
+msgid "Home"
+msgstr ""
+
+#: index.cgi:65 index.cgi:80 index.cgi:239
+msgid "Music"
+msgstr ""
+
+#: index.cgi:66 index.cgi:81 index.cgi:246
+msgid "Videos"
+msgstr ""
+
+#: index.cgi:67 index.cgi:82 index.cgi:253
+msgid "Playlists"
+msgstr ""
+
+#: index.cgi:68 index.cgi:83 index.cgi:260
+msgid "Radio"
+msgstr ""
+
+#: index.cgi:84 index.cgi:267
+msgid "Settings"
+msgstr ""
+
+#: index.cgi:119
+msgid "Videos found"
+msgstr ""
+
+#: index.cgi:170 index.cgi:190
+msgid "No track playing"
+msgstr ""
+
+#: index.cgi:216
+msgid "No video playing"
+msgstr ""
+
+#: mediabox:19
+msgid "MediaBox cmdline tool"
+msgstr ""
+
+#: mediabox:21
+msgid "Usage:"
+msgstr ""
+
+#: mediabox:22
+msgid "Commands:"
+msgstr ""
+
+#: mediabox:25
+msgid "Examples:"
+msgstr ""
+
+#: mediabox:61
+msgid "Adding playlist:"
+msgstr ""
+
+#: mediabox:62
+msgid "Playlist tracks:"
+msgstr ""
