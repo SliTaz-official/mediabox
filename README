@@ -1,0 +1,20 @@
+README - CGI/SHell Media Box
+================================================================================
+
+Light and elegant Media Box using CGI/SHell script and HTML5 technology.
+
+What is working right now 20170223: single audio, videoo, radio
+Tested with:
+	
+	lighttpd: ok
+	httpd: audio ok, video dont start
+	
+TODO: handle playlist with or withour javascript ?
+
+
+Playlists
+---------
+Playlists are stored in user directory: ~./config/mediabox/playlists
+Existing playlist can be add into MediaBox with the cmdline tool:
+
+	$ mediabox add-playlist path/to/playlist.m3u
