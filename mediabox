@@ -1,0 +1,84 @@
+#!/bin/sh
+#
+# Cmdline tool to run, debug and config CGI/SHell MediaBox
+#
+# Copyright (C) 2017 SliTaz GNU/Linux - BSD License
+#
+
+config="$HOME/.config/mediabox"
+playlists="$config/playlists"
+#url="http://localhost/cgi-bin/mediabox/index.cgi"
+url="http://localhost/~pankso/cgi-bin/mediabox/index.cgi"
+
+# Internationalization
+. /usr/bin/gettext.sh
+export TEXTDOMAIN='mediabox'
+
+help() {
+	cat << EOT
+$(gettext "MediaBox cmdline tool")
+
+$(gettext "Usage:") $(basename $0) [file|command] [file]
+$(gettext "Commands:")
+    add-playlist    Add a playlist into MediaBox database
+
+$(gettext "Examples:")
+    $(basename $0) path/to/Music/audio.ogg
+    $(basename $0) add-playlist path/to/playlist.m3u
+
+EOT
+}
+
+init() {
+	install -m 0777 -d ${config}
+	install -m 0777 -d ${playlists}
+	cat > ${config}/mediabox.conf << EOT
+# CGI/SHell MediaBox configuration file
+
+LOCALE="$(locale | grep LANG= | cut -d "=" -f 2)"
+
+MUSIC="$HOME/Music"
+VIDEOS="$HOME/Videos"
+
+EOT
+	echo "favorites.list|Favorites" > ${config}/playlists.list
+	touch ${playlists}/favorites.m3u
+	chmod 0666 \
+		${config}/mediabox.conf \
+		${config}/playlists.list \
+		${playlists}/favorites.m3u
+}
+
+#
+# Handle commands|files|urls
+#
+case "$1" in
+
+	add-playlist)
+		[ ! -f "$2" ] && help && exit 0
+		file=$(basename "$2")
+		count=$(wc -l "$2" | cut -d ' ' -f 1)
+		gettext "Adding playlist:"; echo -n " "; basename "$2"
+		gettext "Playlist tracks:"; echo " $count"
+		cp -f "$2" ${playlists} || exit 1
+		cat >> ${config}/playlists.list << EOT
+$file|$(echo ${file%.m3u})
+EOT
+		;;
+		
+	*.m3u)
+		tazweb "${url}?playlists&play=$1" & ;;
+		
+	*.avi)
+		tazweb "${url}?videos&play=$1" & ;;
+		
+	*.mp3|*.ogg|*.wav)
+		tazweb "${url}?music&play=$1" & ;;
+		
+	"")
+		[ -f "$config/mediabox.conf" ] || init
+		tazweb --notoolbar "${url}?home=$HOME" & ;;
+		
+	*) help ;;
+	
+esac && exit 0
