@@ -4,6 +4,7 @@ README - CGI/SHell Media Box
 Light and elegant Media Box using CGI/SHell script and HTML5 technology.
 
 What is working right now 20170223: single audio, video, radio
+
 Tested with:
 	
 	lighttpd: ok
@@ -12,8 +13,23 @@ Tested with:
 TODO: handle playlist with or without javascript ?
 
 
+Development environment
+--------------------------------------------------------------------------------
+Mediabox is coded in CGI/SHell script and should run with Busybox httpd applet 
+and lighttpd web server. Quick start:
+
+  $ cd ~/Public/cgi-bin
+  $ hg clone http://hg.slitaz.org/mediabox
+  $ install -d -m 0777 mediabox/cache
+  $ cd mediabox
+  --> If lighttpd runing
+  $ tazweb --notoolbar http://localhost/~$USER/cgi-bin/mediabox
+  --> Devel Busybox httpd
+  $ sudo ./server.sh
+
+
 Playlists
----------
+--------------------------------------------------------------------------------
 Playlists are stored in user directory: ~./config/mediabox/playlists
 Existing playlists can be added into MediaBox with the cmdline tool:
 
