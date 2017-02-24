@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # CGI/SHell MediaBox using HTML5 features. Coded with lightness and 
-# elegence in mind.
+# elegance in mind.
 #
 # Copyright (C) 2017 SliTaz GNU/Linux - BSD License
 #
@@ -256,7 +256,7 @@ Music       : $MUSIC
 Videos      : $VIDEOS
 EOT
 		echo -n "Tools       : "
-		# Only small nd light tools!
+		# Only small and light tools!
 		for tool in mediainfo normalize sox
 		do
 			if [ -x "/usr/bin/$tool" ]; then
